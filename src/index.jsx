@@ -11,6 +11,10 @@ const App = () => {
   const [animals, setAnimals] = useState([]);
   const [chosenAnimal, setChosenAnimal] = useState({});
 
+  const selectAnimal = (name) => {
+    const selectedAnimal = animals.filter((animal) => {return animal.nazev === name;})
+    setChosenAnimal(selectedAnimal[0])
+  }
 
   useEffect (
     () => {
@@ -31,8 +35,8 @@ const App = () => {
       <div className="container">
         
         {/* zde budou jednotlivé komponenty */}
-        <AnimalList animals={animals}/>
-        <AnimalDetail animals={chosenAnimal}/>
+        <AnimalList animals={animals} onSelectAnimal={selectAnimal}/>
+        <AnimalDetail animal={chosenAnimal}/>
       </div>
     </>
   );

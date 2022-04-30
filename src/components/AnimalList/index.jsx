@@ -2,9 +2,7 @@ import React from "react";
 import Animal from "../Animal";
 //nezapomínej změnit class na className
 
-const AnimalList = ({animals}) => {
-    
-    console.log(animals)
+const AnimalList = ({animals, onSelectAnimal}) => {
     
     return (
         <div className="animal-list">
@@ -15,6 +13,7 @@ const AnimalList = ({animals}) => {
                         name={animal.nazev}
                         latin={animal.nazevLatinsky}
                         image={animal.foto}
+                        onSelectAnimal={onSelectAnimal}
                     />
                 }
             )}
