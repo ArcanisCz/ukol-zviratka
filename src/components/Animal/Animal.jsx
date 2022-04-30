@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
 
-const Animal = ({ item }) => {
-  const { nazev, nazevLatinsky, foto } = item;
+const Animal = ({ item, handleOnClick }) => {
+  const { id, nazev, nazevLatinsky, foto } = item;
   return (
-    <div className="animal">
+    <div className="animal" onClick={() => handleOnClick(id)}>
       <div className="animal__image">
         <img src={foto} alt="" />
       </div>
