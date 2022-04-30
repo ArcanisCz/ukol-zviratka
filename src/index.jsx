@@ -9,6 +9,8 @@ import AnimalDetail from "./components/AnimalDetail";
 const App = () => {
 
   const [animals, setAnimals] = useState([]);
+  const [chosenAnimal, setChosenAnimal] = useState({});
+
 
   useEffect (
     () => {
@@ -16,6 +18,7 @@ const App = () => {
       .then(response => response.json())
       .then(data => {
         setAnimals(data.zvirata)
+        setChosenAnimal(data.zvirata[0])
       })
     },
     []
@@ -29,7 +32,7 @@ const App = () => {
         
         {/* zde budou jednotlivé komponenty */}
         <AnimalList animals={animals}/>
-        <AnimalDetail animals={animals}/>
+        <AnimalDetail animals={chosenAnimal}/>
       </div>
     </>
   );

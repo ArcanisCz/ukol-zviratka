@@ -15,7 +15,6 @@ const AnimalList = ({animals}) => {
                         name={animal.nazev}
                         latin={animal.nazevLatinsky}
                         image={animal.foto}
-                        
                     />
                 }
             )}
