@@ -3,36 +3,48 @@ import { render } from 'react-dom';
 import './style.css';
 
 
-import { AnimalDetail } from "./components/AnimalList/index"
+import { AnimalDetail } from "./components/AnimalDetail/index"
 import { AnimalList } from "./components/AnimalList/index"
 
 
 const App = () => {
 
-  const [animal, setAnimal] = useState([])
-  const [selectedAnimal, setSelectedAnimal] = useState('Slon africký');
+  const [animals, setAnimals] = useState([])
+  const [selectedAnimal, setSelectedAnimal] = useState({});
 
-
-  const fetchAnimals = () => {
-    fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
-    .then((response) => response.json())
-    .then((animal) => setAnimal(animal.animals))
+  const selectAnimal = (name) => {
+    const selectedAnimal = animals.filter((animal) => {return animal.name === name})
+    setSelectedAnimal(selectAnimal[0])
   }
+
+
+  // const fetchAnimals = (() => {
+  //   fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
+  //   .then((response) => response.json())
+  //   .then((data) => {setAnimals(data.zvirata)
+  //     setSelectedAnimal(data.zvirata[0])
+  //     })
+  // },
+  // []
+  // )
   
   useEffect (() => {
-    fetchAnimals();
-  }, [])
-
-  const chooseAnimal = (selectedAnimal) => {
-    setSelectedAnimal(selectedAnimal);
-  };
+    fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
+    .then((response) => response.json())
+    .then((data) => {setAnimals(data.zvirata)
+      setSelectedAnimal(data.zvirata[0])
+      })
+  },
+  []
+  )
 
   return (
     <>
       <h1>Zvířátka v ZOO</h1>
         
       <div className="container">
-        {animal && <AnimalList animals={animal} chooseAnimal={chooseAnimal} />}
+        <AnimalList animals={animals} chooseAnimal={selectAnimal} />
+        <AnimalDetail animal={selectedAnimal} />
         
       </div>
     </>
@@ -40,3 +52,6 @@ const App = () => {
 }
 
 render(<App />, document.querySelector('#app'));
+
+
+
