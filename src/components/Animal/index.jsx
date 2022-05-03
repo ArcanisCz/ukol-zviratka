@@ -10,7 +10,7 @@ const Animal = ({ foto, nazev, nazevLatinsky, chooseAnimal }) => {
     return (
         <div className='animal' onClick={showAnimalDetail}>
             <div className="animal__image">
-                <img src={foto} alt="slon" />
+                <img src={foto} alt="animal" />
             </div>
             <div className="animal__desc">
                 <div className="animal__name">{nazev}</div>

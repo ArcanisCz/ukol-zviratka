@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Animal from '../Animal';
 
-const AnimalList = ({ data, onChangeAnimal }) => {
+const AnimalList = ({ data, chooseAnimal }) => {
 
 	return (
 		<div className="animal-list">
@@ -12,7 +12,6 @@ const AnimalList = ({ data, onChangeAnimal }) => {
 					foto={animal.foto}
 					nazevLatinsky={animal.nazevLatinsky}
 					chooseAnimal={chooseAnimal}
-					handleClickAnimal={onChangeAnimal} 
 				/>
 			))
 			}
