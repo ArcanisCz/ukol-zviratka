@@ -14,7 +14,7 @@ const App = () => {
 
   const selectAnimal = (name) => {
     const selectedAnimal = animals.filter((animal) => {return animal.name === name})
-    setSelectedAnimal(selectAnimal[0])
+    setSelectedAnimal(selectedAnimal[0])
   }
 
 
@@ -33,6 +33,7 @@ const App = () => {
     .then((response) => response.json())
     .then((data) => {setAnimals(data.zvirata)
       setSelectedAnimal(data.zvirata[0])
+      // console.log(data)
       })
   },
   []
