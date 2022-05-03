@@ -2,9 +2,9 @@ import React from 'react';
 import './style.css'
 import Animal from '../Animal';
 
-const AnimalList = ({animals}) => {
-    return (<div class="animal-list">
-        {animals.map(zvire => <Animal animal={zvire} />)}
+const AnimalList = ({animals, selFn}) => {
+    return (<div className="animal-list">
+        {animals.map(zvire => <Animal animal={zvire} key={zvire.id} selectFunction={selFn} />)}
     </div>)
 }
 

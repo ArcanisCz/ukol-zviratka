@@ -7,25 +7,30 @@ import AnimalDetail from './components/AnimalDetail';
 const App = () => {
 
   const[appData, setAppData] = useState(["wtf0", 'wtf1', "wtf2", "wtf"]);
-
+  
   useEffect(
     ()=>{
       fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
-      .then(res => res.json())
+      .then( res => res.json())
       .then((data)=>setAppData(data.zvirata))
     },
     []
   )
 
+  const showDetail = (animal) =>{
+    setSelectedAnimal(animal)
+  }
+  const[selectedAnimal, setSelectedAnimal] = useState(null)
+
   return (
     <>
       <h1>Zvířátka v ZOO</h1>
       {console.log(appData)}
-
+      {console.log(selectedAnimal)}
+     
       <div className="container">
-      <AnimalList animals={appData} />
-      {console.log(appData)}
-      
+      <AnimalList animals={appData} selFn={showDetail} />
+      <AnimalDetail animal={selectedAnimal===null ? setSelectedAnimal(appData[0]) :selectedAnimal} />
       </div>
     </>
   );

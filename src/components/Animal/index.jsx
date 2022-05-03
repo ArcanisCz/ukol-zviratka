@@ -1,16 +1,15 @@
 import React from 'react';
 import './style.css'
 
-const Animal = ({animal}) => {
+const Animal = ({animal, selectFunction}) => {
 
-return(<div class="animal">
-<div class="animal__image">
-    <img src="image" alt="slon"/>
+return(<div className="animal" onClick={()=>{selectFunction(animal)}}>
+<div className="animal__image">
+    <img src={animal.foto} alt={animal.nazev}/>
 </div>
-<div class="animal__desc">
-    <p>zvire komponenta</p>
-    <div class="animal__name">{animal.nazev}</div>
-    <div class="animal__latin">{animal.nazevLatinsky}</div>
+<div className="animal__desc">
+    <div className="animal__name">{animal.nazev}</div>
+    <div className="animal__latin">{animal.nazevLatinsky}</div>
 </div>
 </div>)
 }
