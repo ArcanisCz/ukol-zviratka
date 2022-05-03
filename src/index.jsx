@@ -24,13 +24,10 @@ const App = () => {
 
   return (
     <>
-      <h1>Zvířátka v ZOO</h1>
-      {console.log(appData)}
-      {console.log(selectedAnimal)}
-     
+      <h1>Zvířátka v ZOO</h1>     
       <div className="container">
       <AnimalList animals={appData} selFn={showDetail} />
-      <AnimalDetail animal={selectedAnimal===null ? setSelectedAnimal(appData[0]) :selectedAnimal} />
+      <AnimalDetail animal={selectedAnimal===null ? appData[0] :selectedAnimal} />
       </div>
     </>
   );
