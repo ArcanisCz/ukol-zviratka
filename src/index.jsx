@@ -13,7 +13,7 @@ const App = () => {
   const [selectedAnimal, setSelectedAnimal] = useState({});
 
   const selectAnimal = (name) => {
-    const selectedAnimal = animals.filter((animal) => {return animal.name === name})
+    const selectedAnimal = animals.filter((animal) => {return animal.nazev === name})
     setSelectedAnimal(selectedAnimal[0])
   }
 

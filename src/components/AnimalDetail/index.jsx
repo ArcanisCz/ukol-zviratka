@@ -2,11 +2,14 @@ import React from 'react';
 import "./style.css"
 
 export const AnimalDetail = ({animal}) => {
+    console.log(animal)
 
+
+    // !!! Pozor, src musím mít ing a né div!!!
     return (
         <div className='detail'>
             <div className='detail__header'>
-                <div className='detail__image' src={animal.foto} ></div>
+                <img className='detail__image' src={animal.foto} ></img> 
                 <div className='detail__title'>
                     <h2 className='detail__name'>{animal.nazev}</h2>
                     <div className='detail__latin'>{animal.nazevLatinsky}</div>

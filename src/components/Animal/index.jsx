@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 export const Animal = ({ id, foto, nazev, nazevLatinsky, chooseAnimal }) => {
-console.log( id, foto, nazev, nazevLatinsky, chooseAnimal )
+
 
   return (
     <div className="animal" onClick={() => chooseAnimal(nazev)}>
