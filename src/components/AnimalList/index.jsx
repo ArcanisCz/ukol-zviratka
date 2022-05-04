@@ -5,7 +5,7 @@ const AnimalList = ({ data, chooseAnimal }) => {
 
 	return (
 		<div className="animal-list">
- {data.map((animal) => (
+			{data.map((animal) => (
 				<Animal
 					key={animal.id}
 					nazev={animal.nazev}

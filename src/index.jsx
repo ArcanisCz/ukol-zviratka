@@ -8,11 +8,11 @@ const App = () => {
 
   const [data, setData] = useState([]);
   const [selectedAnimal, setSelectedAnimal] = useState("Slon africký");
-  
+
   useEffect(() => {
     fetch('https://lrolecek.github.io/zviratka-api/zvirata.json')
       .then(response => response.json())
-      .then(data => setData(data));
+      .then(data => setData(data.zvirata));
   },
     []
   );
