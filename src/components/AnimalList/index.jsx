@@ -14,6 +14,7 @@ const AnimalList = ({animals, onSelectAnimal}) => {
                         latin={animal.nazevLatinsky}
                         image={animal.foto}
                         onSelectAnimal={onSelectAnimal}
+                        id={animal.id}
                     />
                 }
             )}

@@ -11,9 +11,9 @@ const App = () => {
   const [animals, setAnimals] = useState([]);
   const [chosenAnimal, setChosenAnimal] = useState({});
 
-  const selectAnimal = (name) => {
-    const selectedAnimal = animals.filter((animal) => {return animal.nazev === name;})
-    setChosenAnimal(selectedAnimal[0])
+  const selectAnimal = (id) => {
+    const selectedAnimal = animals.find(animal => animal.id === id)
+    setChosenAnimal(selectedAnimal)
   }
 
   useEffect (
