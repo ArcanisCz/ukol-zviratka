@@ -10,6 +10,8 @@ const App = () => {
 
   const [animals, setAnimals] = useState([]);
   const [chosenAnimal, setChosenAnimal] = useState({});
+  const [zooList, setZooList] = useState([])
+  console.log(zooList)
 
   const selectAnimal = (id) => {
     const selectedAnimal = animals.find(animal => animal.id === id)
@@ -23,7 +25,12 @@ const App = () => {
       .then(data => {
         setAnimals(data.zvirata)
         setChosenAnimal(data.zvirata[0])
-      })
+      });
+      fetch("https://lrolecek.github.io/zviratka-api/zoo.json")
+		  .then(response => response.json())
+		  .then(data => {
+			  setZooList(data.zoo)
+		  })
     },
     []
   );
@@ -36,7 +43,7 @@ const App = () => {
         
         {/* zde budou jednotlivé komponenty */}
         <AnimalList animals={animals} onSelectAnimal={selectAnimal}/>
-        <AnimalDetail animal={chosenAnimal}/>
+        <AnimalDetail animal={chosenAnimal} zooList={zooList}/>
       </div>
     </>
   );

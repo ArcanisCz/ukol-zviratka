@@ -1,0 +1,12 @@
+z komponenty AnimalDetail
+
+//nechápu, proč mi nefunguje destructure props na foto, nazev, nazevLatinsky, popis, domovina, biotop, potrava, velikost
+
+//animals.find(animal => animal.id === id)
+//ÚPRAVA BEZ ZOO v názvu: const zooNazvyList = data.zoo.map((item) => item.jmeno.replace("ZOO ", "")) ... const [zooNazvyVse, setZooNazvyVse] = useState([])
+//setZooNazvyAnimal(zooNazvyList.filter((item) => {return item.id == ))
+//const zooVyber = data.zoo.filter((item) => item.id == 5).map((item) => item.jmeno.replace("ZOO ", ""))
+//const zooVyber = data.zoo.id.some((item) => zoo.includes(item))
+//{zooList.filter((item) => zoo.includes(item.id)).map((item) => item.jmeno.replace("ZOO ", ""))}
+//{zooList.map((item) => {return zoo.includes(item.id) ? item.jmeno.replace("ZOO ", ""): none})}
+//podle id dáme jméno

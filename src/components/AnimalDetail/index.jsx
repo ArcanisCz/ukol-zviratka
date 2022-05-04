@@ -1,12 +1,22 @@
 import React, {useState, useEffect} from "react";
 import './style.css';
 //nezapomínej změnit class na className
-//nechápu, proč mi nefunguje destructure props na foto, nazev, nazevLatinsky, popis, domovina, biotop, potrava, velikost
 
-const AnimalDetail = ({animal}) => {
-	console.log(animal)
-	const {foto, nazev, nazevLatinsky, popis, domovina, biotop, potrava, velikost} = animal;
-	console.log(nazev)
+//const xy = zooList.map((item) => {return zoo.includes(item.id) ? item.jmeno.replace("ZOO ", ""): null})
+
+const AnimalDetail = ({animal, zooList}) => {
+	
+	const {foto, nazev, nazevLatinsky, popis, domovina, biotop, potrava, velikost, zoo} = animal;
+	const [zooWithAnimal, setZooWithAnimal] = useState([])
+
+	useEffect (
+		() => {
+		  const names = zooList.filter((item) => {return zoo.includes(item.id)}).map((item) => {return item.jmeno.replace("ZOO ", "")})
+		  setZooWithAnimal(names)
+		  console.log(zoo)
+		},
+		[animal]
+	  );
 
     return (
         <div className="detail">
@@ -46,7 +56,8 @@ const AnimalDetail = ({animal}) => {
 
 					<div className="detail__zoo">
 						<h3>Najdete v těchto ZOO</h3>
-						<p></p>
+						<p>{zooWithAnimal.map((item) => ` ${item},`)}</p>
+						
 					</div>
 				</div>
 
