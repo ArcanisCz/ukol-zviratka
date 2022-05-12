@@ -7,7 +7,8 @@ const AnimalList = ({ list, changeAnimal }) => {
     return (
         <div className="animal-list">
             {list.map(item => (
-                <Animal 
+                <Animal
+                    key={item.id}
                     id={item.id}
                     image={item.foto}
                     name={item.nazev}

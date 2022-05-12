@@ -3,9 +3,9 @@ import React from 'react'
 // styles
 import './Animal.css'
 
-const Animal = ({ image, name, latin, id, changeAnimal }) => {
+const Animal = ({ value, image, name, latin, id, changeAnimal }) => {
     return (
-        <div className="animal" key={id} onClick={() => changeAnimal(id)}>
+        <div className="animal" onClick={() => changeAnimal(id)}>
             <div className="animal__image">
                 <img src={image} alt={name} />
             </div>

@@ -10,8 +10,9 @@ import AnimalList from './components/AnimalList/AnimalList';
 
 const App = () => {
   
-  const [listOfAnimals, setListOfAnimals] = useState([]);
-  const [chosenAnimal, setChosenAnimal] = useState([]);
+  const [listOfAnimals, setListOfAnimals] = useState();
+  const [chosenAnimal, setChosenAnimal] = useState();
+  const [listOfZoos, setListOfZoos] = useState()
 
   // fetching data - zviratka
   useEffect(() => {
@@ -20,6 +21,15 @@ const App = () => {
     .then(data => {
       setListOfAnimals(data.zvirata);
       setChosenAnimal(data.zvirata[0]);
+    });
+  }, [])
+
+  // fetching data - zoo
+  useEffect(() => {
+    fetch('https://lrolecek.github.io/zviratka-api/zoo.json')
+    .then(response => response.json())
+    .then(data => {
+      setListOfZoos(data.zoo);
     });
   }, [])
 
@@ -32,25 +42,27 @@ const App = () => {
 
   return (
     <>
-      <h1>Zvířátka v ZOO</h1>
-      <div className="container">
-        <AnimalList
-          list={listOfAnimals}
-          changeAnimal={changeAnimal}
-        />
-        {chosenAnimal && (
-          <AnimalDetail
-            image={chosenAnimal.foto}
-            name={chosenAnimal.nazev}
-            latin={chosenAnimal.nazevLatinsky}
-            decsription={chosenAnimal.popis}
-            home={chosenAnimal.domovina}
-            biotop={chosenAnimal.biotop}
-            food={chosenAnimal.potrava}
-            size={chosenAnimal.velikost}
-          />
-        )}
-      </div>
+        <h1>Zvířátka v ZOO</h1>
+        {chosenAnimal &&
+          <div className="container">
+            <AnimalList
+              list={listOfAnimals}
+              changeAnimal={changeAnimal}
+            />
+            <AnimalDetail
+              image={chosenAnimal.foto}
+              name={chosenAnimal.nazev}
+              latin={chosenAnimal.nazevLatinsky}
+              decsription={chosenAnimal.popis}
+              home={chosenAnimal.domovina}
+              biotop={chosenAnimal.biotop}
+              food={chosenAnimal.potrava}
+              size={chosenAnimal.velikost}
+              zoos={chosenAnimal.zoo}
+              listOfZoos={listOfZoos}
+            />
+          </div>
+        }
     </>
   );
 }
