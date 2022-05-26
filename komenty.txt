@@ -10,3 +10,6 @@ z komponenty AnimalDetail
 //{zooList.filter((item) => zoo.includes(item.id)).map((item) => item.jmeno.replace("ZOO ", ""))}
 //{zooList.map((item) => {return zoo.includes(item.id) ? item.jmeno.replace("ZOO ", ""): none})}
 //podle id dáme jméno
+
+
+//const xy = zooList.map((item) => {return zoo.includes(item.id) ? item.jmeno.replace("ZOO ", ""): null})

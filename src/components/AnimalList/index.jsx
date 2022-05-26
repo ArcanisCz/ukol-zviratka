@@ -1,8 +1,10 @@
 import React from "react";
+import './style.css';
 import Animal from "../Animal";
 //nezapomínej změnit class na className
 
 const AnimalList = ({animals, onSelectAnimal}) => {
+    //console.log(animals)
     
     return (
         <div className="animal-list">

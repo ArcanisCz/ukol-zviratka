@@ -1,5 +1,7 @@
 .detail {
     background-color: white;
+    grid-column: 2 / -1;
+    grid-row: 1 / -1;
 }
 
 .detail__header {

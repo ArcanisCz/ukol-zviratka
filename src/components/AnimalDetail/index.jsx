@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from "react";
+import React, {useMemo} from "react";
 import './style.css';
 //nezapomínej změnit class na className
-
-//const xy = zooList.map((item) => {return zoo.includes(item.id) ? item.jmeno.replace("ZOO ", ""): null})
 
 const AnimalDetail = ({animal, zooList}) => {
 	
 	const {foto, nazev, nazevLatinsky, popis, domovina, biotop, potrava, velikost, zoo} = animal;
+	
+	{/* moje původní řešení se zbytečným useState a useEffectem, namísto toho použito useMemo - nezapomeň ho importovat v úvodu
 	const [zooWithAnimal, setZooWithAnimal] = useState([])
 
 	useEffect (
@@ -15,8 +15,18 @@ const AnimalDetail = ({animal, zooList}) => {
 		  setZooWithAnimal(names)
 		  console.log(zoo)
 		},
-		[animal]
+		[animal, zooList]
 	  );
+	*/}
+
+	//const zooWithAnimal = zooList
+	//	.filter((item) => zoo?.includes(item.id))
+	//	.map((item) => item.jmeno.replace("ZOO ", ""))
+
+	const zooWithAnimal = useMemo(() => zooList
+	  	.filter((item) => zoo?.includes(item.id))
+	  	.map((item) => item.jmeno.replace("ZOO ", ""))
+		, [zoo, zooList]);
 
     return (
         <div className="detail">

@@ -4,6 +4,7 @@ import './style.css';
 
 import AnimalList from "./components/AnimalList";
 import AnimalDetail from "./components/AnimalDetail";
+import Search from "./components/Search";
 
 
 const App = () => {
@@ -11,11 +12,17 @@ const App = () => {
   const [animals, setAnimals] = useState([]);
   const [chosenAnimal, setChosenAnimal] = useState({});
   const [zooList, setZooList] = useState([])
-  console.log(zooList)
+  console.log(animals)
 
   const selectAnimal = (id) => {
     const selectedAnimal = animals.find(animal => animal.id === id)
     setChosenAnimal(selectedAnimal)
+  }
+
+  const searchAnimal = (result) => {
+    console.log(result)
+    const shoda = animals.filter((item) => {return item.nazev.includes(result)})
+		setAnimals(shoda)
   }
 
   useEffect (
@@ -42,6 +49,7 @@ const App = () => {
       <div className="container">
         
         {/* zde budou jednotlivé komponenty */}
+        <Search onSearchAnimal={searchAnimal}/>
         <AnimalList animals={animals} onSelectAnimal={selectAnimal}/>
         <AnimalDetail animal={chosenAnimal} zooList={zooList}/>
       </div>
