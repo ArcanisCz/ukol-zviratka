@@ -1,0 +1,10 @@
+.animal-search {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.animal-search input {
+    width: 320px;
+    height: 50px;
+    padding: 10px 15px;
+}
